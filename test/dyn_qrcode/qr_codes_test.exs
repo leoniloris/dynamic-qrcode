@@ -6,8 +6,16 @@ defmodule DynQrcode.QrCodesTest do
   describe "qrcode" do
     alias DynQrcode.QrCodes.QrCode
 
-    @valid_attrs %{base_url: "some base_url", is_valid: true, target_url: "https://www.google.com"}
-    @update_attrs %{base_url: "some updated base_url", is_valid: false, target_url: "https://www.twitter.com"}
+    @valid_attrs %{
+      base_url: "some base_url",
+      is_valid: true,
+      target_url: "https://www.google.com"
+    }
+    @update_attrs %{
+      base_url: "some updated base_url",
+      is_valid: false,
+      target_url: "https://www.twitter.com"
+    }
     @invalid_attrs %{base_url: nil, is_valid: nil, target_url: nil}
 
     def qr_code_fixture(attrs \\ %{}) do
