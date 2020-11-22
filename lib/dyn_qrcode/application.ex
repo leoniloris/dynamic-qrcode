@@ -5,8 +5,7 @@ defmodule DynQrcode.Application do
 
   use Application
 
-  @url System.get_env("APP_URL") || "tranquil-bastion-55007.herokuapp.com"
-  # @url "localhost:4000"
+  @url System.get_env("APP_URL") || "localhost:4000"
 
   def url, do: @url
 
