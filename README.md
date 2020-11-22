@@ -1,5 +1,22 @@
 # DynQrcode
 
+A dynamic qr-code server/manager
+
+
+### TODO
+
+- [x] periodically check health of qr-codes
+- [x] redirect qr-code to the first one available
+- [x] generate qr-code image, so the user can download it
+- [ ] login
+
+
+
+
+
+
+_________________________________________________________
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
