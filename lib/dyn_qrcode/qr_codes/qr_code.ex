@@ -25,7 +25,7 @@ defmodule DynQrcode.QrCodes.QrCode do
       case uri do
         %URI{scheme: nil} -> [{field, options[:message] || "URL should be https://something"}]
         %URI{host: nil} -> [{field, options[:message] || "URL should be https://something"}]
-        uri -> []
+        _uri -> []
       end
     end)
   end

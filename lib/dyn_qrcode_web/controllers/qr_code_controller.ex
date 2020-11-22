@@ -1,6 +1,8 @@
 defmodule DynQrcodeWeb.QrCodeController do
   use DynQrcodeWeb, :controller
+  import Ecto
 
+  alias DynQrcode.Application
   alias DynQrcode.QrCodes
   alias DynQrcode.QrCodes.QrCode
 
@@ -12,8 +14,17 @@ defmodule DynQrcodeWeb.QrCodeController do
 
   def new(conn, _params) do
     # IO.puts("NEW NEW NEW NEW NEW")
-    changeset = QrCodes.change_qr_code(%QrCode{})
-    render(conn, "new.html", changeset: changeset)
+    base_url = "#{Application.url()}/fetch/#{Ecto.UUID.generate()}"
+    changeset = QrCodes.change_qr_code(%QrCode{base_url: base_url})
+
+    render(conn, "new.html",
+      changeset: changeset,
+      qr_code_image:
+        base_url
+        |> EQRCode.encode()
+        |> EQRCode.png()
+        |> Base.encode64
+    )
   end
 
   def create(conn, %{"qr_code" => qr_code_params}) do

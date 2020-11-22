@@ -1,5 +1,5 @@
 use Mix.Config
-
+alias DynQrcode.Application
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :dyn_qrcode, DynQrcodeWeb.Endpoint,
-  url: [scheme: "https", host: "tranquil-bastion-55007.herokuapp.com", port: 443],
+  url: [scheme: "https", host: Application.url, port: 443],
   http: [port: {:system, "PORT"}],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",

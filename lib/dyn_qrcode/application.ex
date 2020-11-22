@@ -5,6 +5,10 @@ defmodule DynQrcode.Application do
 
   use Application
 
+  @url "tranquil-bastion-55007.herokuapp.com"
+
+  def url, do: @url
+
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
