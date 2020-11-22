@@ -14,9 +14,13 @@ defmodule DynQrcode.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: DynQrcode.PubSub},
       # Start the Endpoint (http/https)
-      DynQrcodeWeb.Endpoint
+      DynQrcodeWeb.Endpoint,
       # Start a worker by calling: DynQrcode.Worker.start_link(arg)
       # {DynQrcode.Worker, arg}
+      %{
+        id: DynQrcode.UrlContentValidator,
+        start: { DynQrcode.UrlContentValidator, :start_link, [] }
+      }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

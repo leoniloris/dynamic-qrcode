@@ -23,8 +23,8 @@ defmodule DynQrcode.QrCodes.QrCode do
       uri = URI.parse(url)
 
       case uri do
-        %URI{scheme: nil} -> [{field, options[:message] || "Unexpected URL"}]
-        %URI{host: nil} -> [{field, options[:message] || "Unexpected URL"}]
+        %URI{scheme: nil} -> [{field, options[:message] || "URL should be https://something"}]
+        %URI{host: nil} -> [{field, options[:message] || "URL should be https://something"}]
         uri -> []
       end
     end)
