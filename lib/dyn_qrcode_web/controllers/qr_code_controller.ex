@@ -50,7 +50,10 @@ defmodule DynQrcodeWeb.QrCodeController do
     end
   end
 
-  def fetch(conn, %{"base_url" => base_url}) do
+  def fetch(conn, %{"base_url" => base_url_id}) do
+    IO.puts("target_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_urltarget_url")
+    base_url = "#{Application.url()}/fetch/#{base_url_id}"
+    IO.inspect(base_url)
     qr_code =
       QrCodes.get_all_qr_codes_with_base_url!(base_url)
       |> Enum.filter(fn q -> q.is_valid end)
