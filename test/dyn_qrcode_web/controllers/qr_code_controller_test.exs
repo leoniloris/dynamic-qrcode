@@ -3,8 +3,12 @@ defmodule DynQrcodeWeb.QrCodeControllerTest do
 
   alias DynQrcode.QrCodes
 
-  @create_attrs %{base_url: "some base_url", is_valid: true, target_url: "some target_url"}
-  @update_attrs %{base_url: "some updated base_url", is_valid: false, target_url: "some updated target_url"}
+  @create_attrs %{base_url: "some base_url", is_valid: true, target_url: "https://www.google.com"}
+  @update_attrs %{
+    base_url: "some updated base_url",
+    is_valid: false,
+    target_url: "https://www.twitter.com"
+  }
   @invalid_attrs %{base_url: nil, is_valid: nil, target_url: nil}
 
   def fixture(:qr_code) do
@@ -75,9 +79,10 @@ defmodule DynQrcodeWeb.QrCodeControllerTest do
     test "deletes chosen qr_code", %{conn: conn, qr_code: qr_code} do
       conn = delete(conn, Routes.qr_code_path(conn, :delete, qr_code))
       assert redirected_to(conn) == Routes.qr_code_path(conn, :index)
-      assert_error_sent 404, fn ->
+
+      assert_error_sent(404, fn ->
         get(conn, Routes.qr_code_path(conn, :show, qr_code))
-      end
+      end)
     end
   end
 
