@@ -4,6 +4,7 @@ defmodule DynQrcode.Application do
   @moduledoc false
 
   use Application
+  alias DynQrcode.DynQrcode.UrlContentValidator
 
   @url System.get_env("APP_URL") || "localhost:4000"
 
@@ -22,8 +23,8 @@ defmodule DynQrcode.Application do
       # Start a worker by calling: DynQrcode.Worker.start_link(arg)
       # {DynQrcode.Worker, arg}
       %{
-        id: DynQrcode.UrlContentValidator,
-        start: { DynQrcode.UrlContentValidator, :start_link, [] }
+        id: UrlContentValidator,
+        start: { UrlContentValidator, :start_link, [] }
       }
     ]
 
