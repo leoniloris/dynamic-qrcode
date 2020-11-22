@@ -55,6 +55,7 @@ defmodule DynQrcode.QrCodes do
   def create_qr_code(attrs \\ %{}) do
     %QrCode{}
     |> QrCode.changeset(attrs)
+    |> Ecto.Changeset.unique_constraint(:target_url)
     |> Repo.insert()
   end
 

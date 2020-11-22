@@ -34,8 +34,6 @@ defmodule DynQrcode.QrCodesTest do
 
     test "get_qr_code!/1 returns the qr_code with given id" do
       qr_code = qr_code_fixture()
-      IO.inspect(qr_code)
-      IO.inspect(QrCodes.get_qr_code!(qr_code.id))
       assert QrCodes.get_qr_code!(qr_code.id) == qr_code
     end
 

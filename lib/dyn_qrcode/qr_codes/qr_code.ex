@@ -21,7 +21,6 @@ defmodule DynQrcode.QrCodes.QrCode do
   def validate_uri(changeset, field, options \\ []) do
     validate_change(changeset, field, fn _, url ->
       uri = URI.parse(url)
-      IO.inspect(uri)
 
       case uri do
         %URI{scheme: nil} -> [{field, options[:message] || "Unexpected URL"}]
