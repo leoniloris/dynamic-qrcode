@@ -1,6 +1,7 @@
 <div>
   <object type="text/html" data=<%= @qr_code.base_url %>></object>
 </div>
+<img id="qr_code_image_id" src="data:image/jpeg;base64,<%= @qr_code_image %>">
 
 <!--
 <h1>Show Qr code</h1>

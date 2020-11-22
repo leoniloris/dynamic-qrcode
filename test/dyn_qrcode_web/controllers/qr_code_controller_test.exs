@@ -68,7 +68,7 @@ defmodule DynQrcodeWeb.QrCodeControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, qr_code: qr_code} do
-      conn = put(conn, Routes.qr_code_path(conn, :update, qr_code), qr_code: @invalid_attrs)
+      conn = put(conn, Routes.qr_code_path(conn, :update, qr_code), qr_code: @invalid_attrs, qr_code_image: "")
       assert html_response(conn, 200) =~ "Edit Qr code"
     end
   end

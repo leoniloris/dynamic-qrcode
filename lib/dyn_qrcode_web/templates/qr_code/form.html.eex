@@ -8,6 +8,10 @@
   <%= label f, :target_url %>
   <%= text_input f, :target_url %>
   <%= error_tag f, :target_url %>
+
+  <%= error_tag f, :is_valid %>
+  <%= error_tag f, :base_url %>
+
   <img id="qr_code_image_id" src="data:image/jpeg;base64,<%= @qr_code_image %>">
   <div>
     <%= submit "Save" %>

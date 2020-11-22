@@ -3,7 +3,7 @@ defmodule DynQrcode.QrCodes.QrCode do
   import Ecto.Changeset
 
   schema "qrcode" do
-    field(:base_url, :string)
+    field(:base_url, :string, default: "")
     field(:is_valid, :boolean, default: true)
     field(:target_url, :string)
 
