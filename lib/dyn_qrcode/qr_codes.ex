@@ -37,7 +37,8 @@ defmodule DynQrcode.QrCodes do
   """
   def get_qr_code!(id), do: Repo.get!(QrCode, id)
 
-  def get_all_qr_codes_with_base_url!(base_url), do: Repo.all(from(q in QrCode, where: q.base_url == ^base_url))
+  def get_all_qr_codes_with_base_url!(base_url),
+    do: Repo.all(from(q in QrCode, where: q.base_url == ^base_url))
 
   @doc """
   Creates a qr_code.
