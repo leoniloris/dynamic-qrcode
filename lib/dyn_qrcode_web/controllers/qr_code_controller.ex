@@ -31,9 +31,11 @@ defmodule DynQrcodeWeb.QrCodeController do
   end
 
   def fetch(conn, %{"base_url" => base_url}) do
-    qr_code = QrCodes.get_all_qr_codes_with_base_url!(base_url)
-    |> Enum.filter(fn q -> q.is_valid end)
-    |> Enum.at(0, :none)
+    qr_code =
+      QrCodes.get_all_qr_codes_with_base_url!(base_url)
+      |> Enum.filter(fn q -> q.is_valid end)
+      |> Enum.at(0, :none)
+
     conn
     |> Plug.Conn.resp(:found, "")
     |> Plug.Conn.put_resp_header("location", qr_code.target_url)
@@ -62,10 +64,10 @@ defmodule DynQrcodeWeb.QrCodeController do
         |> put_flash(:info, "Qr code updated successfully.")
         |> redirect(to: Routes.qr_code_path(conn, :show, qr_code))
 
-        {:error, %Ecto.Changeset{} = changeset} ->
-          render(conn, "edit.html", qr_code: qr_code, changeset: changeset)
-        end
-      end
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html", qr_code: qr_code, changeset: changeset)
+    end
+  end
 
   def delete(conn, %{"id" => id}) do
     IO.puts("DELETE DELETE DELETE DELETE DELETE")

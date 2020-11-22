@@ -28,9 +28,6 @@ config :dyn_qrcode, DynQrcodeWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-
-
-
 # Configure your database
 config :dyn_qrcode, DynQrcode.Repo,
   show_sensitive_data_on_connection_error: true,
