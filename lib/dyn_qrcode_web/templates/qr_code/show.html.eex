@@ -1,0 +1,29 @@
+<div>
+  <object type="text/html" data=<%= @qr_code.base_url %>></object>
+</div>
+
+<!--
+<h1>Show Qr code</h1>
+
+<ul>
+
+  <li>
+    <strong>Base url:</strong>
+    <%= @qr_code.base_url %>
+  </li>
+
+  <li>
+    <strong>Target url:</strong>
+    <%= @qr_code.target_url %>
+  </li>
+
+  <li>
+    <strong>Is valid:</strong>
+    <%= @qr_code.is_valid %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.qr_code_path(@conn, :edit, @qr_code) %></span>
+<span><%= link "Back", to: Routes.qr_code_path(@conn, :index) %></span>
+-->

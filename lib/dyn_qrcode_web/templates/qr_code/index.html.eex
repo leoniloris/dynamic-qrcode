@@ -1,0 +1,30 @@
+<h1>Listing Qrcode</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Base url</th>
+      <th>Target url</th>
+      <th>Is valid</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for qr_code <- @qrcode do %>
+    <tr>
+      <td><%= qr_code.base_url %></td>
+      <td><%= qr_code.target_url %></td>
+      <td><%= qr_code.is_valid %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.qr_code_path(@conn, :show, qr_code) %></span>
+        <span><%= link "Edit", to: Routes.qr_code_path(@conn, :edit, qr_code) %></span>
+        <span><%= link "Delete", to: Routes.qr_code_path(@conn, :delete, qr_code), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Qr code", to: Routes.qr_code_path(@conn, :new) %></span>

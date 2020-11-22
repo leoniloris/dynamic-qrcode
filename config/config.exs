@@ -8,16 +8,15 @@
 use Mix.Config
 
 config :dyn_qrcode,
-  ecto_repos: [DynQrcode.Repo],
-  generators: [binary_id: true]
+  ecto_repos: [DynQrcode.Repo]
 
 # Configures the endpoint
 config :dyn_qrcode, DynQrcodeWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "a9sRVbocGo1U+Y8/ekHmODSiZX4G56GmfH0+KoQVc6eYdPBH8lJLAXn2VSfa9ZfG",
-  render_errors: [view: DynQrcodeWeb.ErrorView, accepts: ~w(json), layout: false],
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  render_errors: [view: DynQrcodeWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: DynQrcode.PubSub,
-  live_view: [signing_salt: "2NvBehf/"]
+  live_view: [signing_salt: "tGlLU8I6"]
 
 # Configures Elixir's Logger
 config :logger, :console,

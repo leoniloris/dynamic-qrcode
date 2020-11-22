@@ -7,7 +7,7 @@ defmodule DynQrcodeWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_dyn_qrcode_key",
-    signing_salt: "74G9z3Is"
+    signing_salt: "3NfZI3zs"
   ]
 
   socket "/socket", DynQrcodeWeb.UserSocket,
@@ -29,6 +29,8 @@ defmodule DynQrcodeWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
+    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :dyn_qrcode
   end

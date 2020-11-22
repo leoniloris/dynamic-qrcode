@@ -1,0 +1,5 @@
+<h1>Edit Qr code</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.qr_code_path(@conn, :update, @qr_code)) %>
+
+<span><%= link "Back", to: Routes.qr_code_path(@conn, :index) %></span>
